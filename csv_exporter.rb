@@ -1,8 +1,10 @@
+require 'csv'
+
 class CsvExporter
 
-	def initialize(todos)
+  def initialize(todos)
     @todos = todos
-	end
+  end
 
   def export(file_name)
     CSV.open(file_name, 'wb') do |csv|
