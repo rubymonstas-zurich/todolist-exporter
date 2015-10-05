@@ -1,0 +1,16 @@
+body {
+  font-family: "Arial";
+}
+
+h1 {
+  font-variant: small-caps;
+  color: grey;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+li {
+  color: CadetBlue;
+}

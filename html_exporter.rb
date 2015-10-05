@@ -1,3 +1,5 @@
+require 'erb'
+
 class HtmlExporter
 
   def initialize(todos)
@@ -5,32 +7,11 @@ class HtmlExporter
   end
 
   def export(file_name)
-    File.open(file_name, 'wb') do |html|
-      begin_html = "
-        <!DOCTYPE html>
-        <html>
-        <head>
-        <title>Todo List Export</title>
-        </head>
-
-        <body>
-        <h1>Here's all the todos!</h1>
-
-        <ul>
-      "
-      html << begin_html
-
-      @todos.each do |todo|
-        html << "<li>#{todo.title} (#{todo.completed?})</li>\n"
-      end
-
-      end_html = "
-        </ul>
-
-        </body>
-        </html>
-      "
-      html << end_html
+    File.open(file_name, 'wb') do |output_file|
+      template_source = File.new('todos.html.erb').read
+      erb = ERB.new(template_source)
+      rendered_html = erb.result(binding)
+      output_file.write(rendered_html)
     end
 
     puts "Written HTML export to file #{file_name}."

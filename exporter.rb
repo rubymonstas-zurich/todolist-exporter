@@ -1,5 +1,5 @@
 require './csv_exporter'
-require './html_exporter'
+require './erb_exporter'
 
 class Exporter
 
@@ -33,13 +33,13 @@ class Exporter
 
   def export_csv
     file_name = readline("Please enter a file name:")
-    csv_exporter = CsvExporter.new(@todos)
+    csv_exporter = HtmlExporter.new(@todos)
     csv_exporter.export(file_name)
   end
 
   def export_html
     file_name = readline("Please enter a file name:")
-    html_exporter = HtmlExporter.new(@todos)
+    html_exporter = ErbExporter.new(@todos)
     html_exporter.export(file_name)
   end
 

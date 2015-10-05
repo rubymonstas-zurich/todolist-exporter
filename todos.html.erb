@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List Export</title>
+  </head>
+
+  <body>
+    <h1>Here's all the todos!</h1>
+
+    <ul>
+      <% @todos.each do |todo| %>
+        <li>
+          <%= todo.title %> (<%= todo.completed? %>)
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
