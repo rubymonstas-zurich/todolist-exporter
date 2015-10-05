@@ -1,5 +1,5 @@
 require './csv_exporter'
-require './erb_exporter'
+require './html_exporter'
 
 class Exporter
 
